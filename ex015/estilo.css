@@ -1,0 +1,12 @@
+@charset "UTF-8";
+h1{
+    font-size: 70px;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif; color: brown;
+}
+
+body{
+    background-color: aqua;
+}
