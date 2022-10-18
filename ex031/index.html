@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>primeiro formulario</title>
+</head>
+<body>
+    <h1>formulario</h1>
+
+    <form action="cadastro.php" method="post" autocomplete="on">
+        <fieldset>
+          <legend>Dados pessoais</legend>
+            <p>
+                <label for="inome">nome:</label> <input type="text" name="nome" id="inome" placeholder="nome completo">
+            </p>
+            <p>
+                <label for="isobrenome">sobrenome:</label> <input type="text" name="sobrenome" id="isobrenome">
+            </p>
+            <p>
+                <label for="iemail">E-mail</label>
+                <input type="email" name="email" id="iemail" autocomplete="email" required>
+            </p>
+            <p>
+                <label for="itel">Telefone</label>
+                <input type="tel" name="tel" id="itel" autocomplete="tel" pattern="^\(\d{2}\)\d{4,5}-\d{4}$" required placeholder="(xx)xxxx-xxxx">
+    
+            </p>
+    
+        </fieldset>
+        <fieldset>
+            <p>
+                <label for="iest">Estado</label>
+                <select name="estado" id="iest">
+                    <option value="" selected>---ESCOLHA---</option>
+                    <optgroup label="Região Sudeste">
+                        <option value="MG">Minas Gerais</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                    </optgroup>
+
+                    <optgroup label="Região Nordeste">
+                        <option value="MA">Maranhão</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="RN">Rio Grande do Norte</option>
+
+                    </optgroup>
+                </select>
+
+                <p>
+                    <label for="iprof">profissão</label>
+                    <input type="text" name="prof" id="iprof" list="lstprof">
+                    <datalist id="lstprof">
+                        <option>Administrador</option>
+                        <option>Contador</option>
+                        <option>Policial</option>
+                        <option>Desenvolvedor</option>
+
+                    </datalist>
+
+                </p>
+                <p>
+                    <label for="iano">Em que ano você nasceu</label>
+                    <input type="number" name="ano" id="iano" min="1900" max="2022" oninput="calcIdade()">
+
+                </p>
+                <p>
+                    <label for="iidade">Sua idade é: </label>
+                    <output id="iidade">0</output>
+                </p>
+            
+
+                
+            </p>
+        </fieldset>
+        
+        <fieldset>
+            
+
+            <p>
+                <label for="imedia">Media</label>
+                <input type="number" name="Media" id="imedia" min="0" max="10" placeholder="0 a 10" step="0.1" value="5" required>
+            
+            </p>
+            <p>
+                <label for="imes">Periodo letivo</label>
+                <input type="month" name="mes" id="imes">
+            </p>
+            <p>
+                <label for="idia">Dia da prova</label>
+                <input type="date" name="dia" id="idia">
+            </p>
+            <p>
+                <label for="ihora">horario da prova</label>
+                <input type="time" name="hora" id="ihora">
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>sexo</legend>
+            <input type="radio" name="sexo" id="isxmas"><label for="isxmas">Masculino</label><br>
+            <input type="radio" name="sexo" id="isxfem"><label for="isxfem">Feminino</label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Esporte Favorito</legend>
+            <input type="checkbox" name="esbas" id="iesbas"><label for="iesbas">Basquete</label><br>
+            <input type="checkbox" name="esfut" id="iesfut"><label for="iesfut">Futebol</label><br>
+            <input type="checkbox" name="esnat" id="iesnat"><label for="iesnat">Natação</label><br>
+            <input type="checkbox" name="esten" id="iesten"><label for="iesten">Tenis</label><br>
+        </fieldset>
+
+        <p>
+            <label for="ifoto">Foto do perfil</label>
+            <input type="file" name="foto" id="ifoto">
+        </p>
+
+        <p>
+            <label for="inivel">Nivel de satisfação</label>
+            <input type="range" name="nivel" id="inivel" min="1" max="10" value="5" oninput="ival.innerHTML = Number(inivel.value)">
+            <output id="ival">5</output>
+        </p>
+
+        <p>
+            <label for="imsg">Menssagem</label><br>
+            <textarea name="msg" id="imsg" cols="30" rows="10"></textarea>
+        </p>
+
+        <p>
+            <input type="submit" value="enviar"> 
+            <input type="reset" value="limpar">
+        </p>
+        
+    </form>
+    <script>
+        function calcIdade() {
+            let = atual new Date().getFullYear()
+            iidade.innerHTML = Number(atual) - Number(iano.value)
+        }
+    </script>
+</body>
+</html>
